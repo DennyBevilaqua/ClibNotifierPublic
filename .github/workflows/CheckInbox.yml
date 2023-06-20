@@ -31,7 +31,7 @@ jobs:
         env:
             USERNAME: ${{ secrets.clib_username }}
             PASSWORD: ${{ secrets.clib_password }}
-            username: "email@meuemail.com,meu@outroemail.com"
+            RECIPIENTS: "email@meuemail.com,meu@outroemail.com"
         continue-on-error: true
         run: |
-          java -jar ./latest/ClibNotifier-1.1.jar $env:USERNAME $env:PASSWORD denny@bevilaqua.eu,silvia.kgallo@gmail.com
+          java -jar ./latest/ClibNotifier-1.1.jar $env:USERNAME $env:PASSWORD $env:RECIPIENTS
