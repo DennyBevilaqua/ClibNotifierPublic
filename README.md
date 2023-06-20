@@ -1,4 +1,4 @@
-<b>CLIB - Check Inbox website and notify when a new message is posted<b>
+# CLIB - Check Inbox website and notify when a new message is posted
 
 Create a copy of this repo and then follow the below steps in the copied repo:
 
