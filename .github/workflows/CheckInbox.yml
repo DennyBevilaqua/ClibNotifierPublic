@@ -1,0 +1,37 @@
+name: Check Inbox
+
+on:
+  schedule:
+    - cron:  '*/30 6-22 * * *'    # At every 30 minute
+
+  workflow_dispatch:
+
+jobs:
+
+  check:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+      
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.17
+
+      - name: Java Version
+        run: java -version
+      
+#      - name: Build
+#        run: gradle clean build
+        
+      - name: Check Inbox
+        env:
+            USERNAME: ${{ secrets.clib_username }}
+            PASSWORD: ${{ secrets.clib_password }}
+            username: "email@meuemail.com,meu@outroemail.com"
+        continue-on-error: true
+        run: |
+          java -jar ./latest/ClibNotifier-1.1.jar $env:USERNAME $env:PASSWORD denny@bevilaqua.eu,silvia.kgallo@gmail.com
